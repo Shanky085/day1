@@ -9,27 +9,248 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--blue:#2563EB;--ink:#0F172A;--bg:#F8FAFC;--cyan:#06B6D4;--muted:#64748B;--line:#E2E8F0;--card:#fff}
+:root{--blue:#2563EB;--ink:#0F172A;--bg:#F8FAFC;--cyan:#06B6D4;--muted:#64748B;--line:#E2E8F0;--card:#fff;--red:#DC2626;--amber:#D97706;--green:#16A34A}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,sans-serif;line-height:1.65}a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
 .wrap{max-width:1080px;margin:auto;padding:0 24px}nav{position:sticky;top:0;z-index:5;background:rgba(248,250,252,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}.navin{display:flex;justify-content:space-between;align-items:center;height:64px}.brand{font-family:"Space Grotesk";font-weight:700}.brand span{color:var(--blue)}.navlinks{display:flex;gap:18px;font-size:13px}.navlinks a{color:var(--muted)}
 .hero{padding:92px 0 64px;border-bottom:1px solid var(--line)}.eyebrow{color:var(--blue);font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:12px}h1,h2,h3{font-family:"Space Grotesk",sans-serif;line-height:1.12;margin:0 0 18px}h1{font-size:clamp(42px,7vw,76px);max-width:900px;letter-spacing:-.04em}h2{font-size:34px;letter-spacing:-.025em;margin-bottom:22px}h3{font-size:20px}.lead{font-size:20px;color:#334155;max-width:780px}.meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px}.pill{border:1px solid var(--line);background:#fff;border-radius:999px;padding:7px 12px;font-size:13px;color:#475569}
 section{padding:72px 0;border-bottom:1px solid var(--line)}.grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px;box-shadow:0 8px 30px rgba(15,23,42,.04)}.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:30px}.kpi{padding:22px;border-radius:16px;background:var(--ink);color:white}.kpi strong{display:block;font-family:"Space Grotesk";font-size:29px}.kpi span{font-size:12px;color:#CBD5E1}
-table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden}th,td{text-align:left;padding:14px 16px;border-bottom:1px solid var(--line);font-size:14px}th{background:#F1F5F9;font-weight:700}tr:last-child td{border-bottom:0}.note{border-left:4px solid var(--cyan);background:#ECFEFF;padding:18px 20px;border-radius:0 12px 12px 0;margin:22px 0}.chart{background:#fff;border:1px solid var(--line);border-radius:18px;padding:24px}.bars{display:flex;align-items:flex-end;gap:34px;height:220px;padding:20px 18px 0;border-bottom:1px solid #CBD5E1}.barwrap{height:100%;display:flex;align-items:flex-end;gap:10px;flex:1}.bar{width:72px;max-width:70%;background:var(--blue);border-radius:9px 9px 0 0;position:relative}.bar.alt{background:var(--cyan)}.bar b{position:absolute;top:-28px;left:50%;transform:translateX(-50%);font-size:13px;white-space:nowrap}.labels{display:flex;gap:34px;padding:12px 18px 0}.labels div{flex:1;text-align:center;font-size:12px;color:var(--muted)}ol{padding-left:22px}.rec{display:grid;grid-template-columns:70px 1fr;gap:18px;padding:20px 0;border-bottom:1px solid var(--line)}.rec:last-child{border-bottom:0}.rank{font-family:"Space Grotesk";font-size:28px;color:var(--blue)}footer{padding:52px 0 70px;color:#475569;font-size:14px}.small{font-size:13px;color:var(--muted)}code{background:#F1F5F9;padding:2px 5px;border-radius:5px}@media(max-width:760px){.navlinks{display:none}.hero{padding-top:62px}.grid,.kpis{grid-template-columns:1fr}.kpi strong{font-size:25px}.rec{grid-template-columns:48px 1fr}}
+table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden}th,td{text-align:left;padding:14px 16px;border-bottom:1px solid var(--line);font-size:14px}th{background:#F1F5F9;font-weight:700}tr:last-child td{border-bottom:0}.note{border-left:4px solid var(--cyan);background:#ECFEFF;padding:18px 20px;border-radius:0 12px 12px 0;margin:22px 0}.note.warn{border-left-color:var(--amber);background:#FFFBEB}.chart{background:#fff;border:1px solid var(--line);border-radius:18px;padding:24px}.chart img{width:100%;height:auto;border-radius:10px}
+ol{padding-left:22px}.rec{display:grid;grid-template-columns:70px 1fr;gap:18px;padding:20px 0;border-bottom:1px solid var(--line)}.rec:last-child{border-bottom:0}.rank{font-family:"Space Grotesk";font-size:28px;color:var(--blue)}footer{padding:52px 0 70px;color:#475569;font-size:14px}.small{font-size:13px;color:var(--muted)}code{background:#F1F5F9;padding:2px 5px;border-radius:5px}
+.highlight{background:#FEF3C7;border:1px solid #FDE68A;border-radius:12px;padding:16px 20px;margin:16px 0}
+@media(max-width:760px){.navlinks{display:none}.hero{padding-top:62px}.grid,.kpis{grid-template-columns:1fr}.kpi strong{font-size:25px}.rec{grid-template-columns:48px 1fr}}
 </style>
 </head>
 <body>
-<nav><div class="wrap navin"><div class="brand">Shanky <span>/</span> ML Research</div><div class="navlinks"><a href="#question">Question</a><a href="#data">Data</a><a href="#method">Method</a><a href="#results">Results</a><a href="#recommendations">Recommendations</a></div></div></nav>
-<header class="hero"><div class="wrap"><div class="eyebrow">FlyRank ML Internship · Research Artifact</div><h1>Content refresh prioritization from search &amp; content signals.</h1><p class="lead">A public-safe study of whether observed page and search-performance signals can improve the prioritization of pages for human content review.</p><div class="meta"><span class="pill">Author: Shanky Pal</span><span class="pill">30,000 page observations</span><span class="pill">Logistic Regression</span><span class="pill">Grouped client validation</span></div><div class="kpis"><div class="kpi"><strong>0.5582</strong><span>Model Average Precision</span></div><div class="kpi"><strong>0.4974</strong><span>Baseline Average Precision</span></div><div class="kpi"><strong>0.5621</strong><span>Model ROC-AUC</span></div><div class="kpi"><strong>0.4644</strong><span>Baseline ROC-AUC</span></div></div></div></header>
+<nav><div class="wrap navin"><div class="brand">Shanky <span>/</span> ML Research</div><div class="navlinks"><a href="#abstract">Abstract</a><a href="#question">Question</a><a href="#data">Data</a><a href="#method">Method</a><a href="#results">Results</a><a href="#limitations">Limitations</a><a href="#recommendations">Recommendations</a></div></div></nav>
+
+<header class="hero"><div class="wrap">
+<div class="eyebrow">FlyRank ML Internship &middot; Research Artifact</div>
+<h1>Content refresh prioritization from search &amp; content signals.</h1>
+<p class="lead">A public-safe study of whether observed page and search-performance signals can improve the prioritization of pages for human content review.</p>
+<div class="meta">
+<span class="pill">Author: Shanky Pal</span>
+<span class="pill">30,000 page observations</span>
+<span class="pill">Logistic Regression</span>
+<span class="pill">Grouped client validation</span>
+</div>
+<div class="kpis">
+<div class="kpi"><strong>0.5582</strong><span>Model Average Precision</span></div>
+<div class="kpi"><strong>0.4974</strong><span>Baseline Average Precision</span></div>
+<div class="kpi"><strong>0.5621</strong><span>Model ROC-AUC</span></div>
+<div class="kpi"><strong>0.4644</strong><span>Baseline ROC-AUC</span></div>
+</div>
+</div></header>
+
 <main class="wrap">
-<section id="abstract"><div class="grid"><div><div class="eyebrow">Abstract</div><h2>Five-sentence summary</h2></div><div class="card"><p>This study asks whether observed content and search-performance signals can help prioritize pages for human review for a possible content refresh.</p><p>I compared a simple three-signal rule-based baseline with a Logistic Regression classifier using page, search, and recent performance features.</p><p>The evaluation used an 80/20 split grouped by client, with Average Precision and ROC-AUC measured on the same held-out test set.</p><p>Logistic Regression measured higher Average Precision (0.5582 vs 0.4974) and ROC-AUC (0.5621 vs 0.4644) than the Week-4 baseline.</p><p>These results are directional decision-support evidence under the evaluated conditions, not proof that a refresh will improve future search performance.</p></div></div></section>
-<section id="question"><div class="eyebrow">01 · Question</div><h2>What decision should the model support?</h2><div class="card"><p><strong>Research question:</strong> Can observed content and search-performance signals be used to prioritize pages for human review for a possible content refresh?</p><p><strong>Decision:</strong> Which pages should a content/SEO reviewer examine first?</p><div class="note">The output is a prioritization aid. It is not an automatic refresh decision and does not claim that a recommended refresh will succeed.</div></div></section>
-<section id="data"><div class="eyebrow">02 · Data</div><h2>A focused, public-safe slice</h2><div class="grid"><div class="card"><h3>Release &amp; grain</h3><p>The work uses the anonymized content-refresh slice from the FlyRank ML Internship dataset. The modeling file contains <strong>30,000 page-level observations</strong>; one row represents a content-page observation with search, content, and recent performance attributes.</p></div><div class="card"><h3>Windows &amp; exclusions</h3><p>March 2026 was used as the mid-panel development window in the data-contract stage, while June 2026 was treated as a sealed outcome/test month. Client identifiers were retained only for grouped validation; outcome fields were excluded from predictive inputs.</p></div></div><div class="note"><strong>Public-safe:</strong> No client names, private URLs, private queries, or other identifying information are disclosed here.</div></section>
-<section id="method"><div class="eyebrow">03 · Methodology</div><h2>Simple model, honest evaluation.</h2><div class="grid"><div class="card"><h3>Target</h3><p>The modeling target is a binary proxy: <code>trend_direction == down</code> is treated as attention-positive; other observed directions are treated as the comparison class. This is not a label for refresh success.</p></div><div class="card"><h3>Model</h3><p>Logistic Regression was selected as a simple, interpretable classification method. Numeric features were imputed and standardized; <code>competition_level</code> was imputed and one-hot encoded.</p></div><div class="card"><h3>Features</h3><p>Search volume, competition level, CPC, word count, character count, 90-day impressions, clicks, pageviews, sessions, content age, and CTR.</p></div><div class="card"><h3>Baseline</h3><p>The Week-4 rule scores three observed signals: content age, CTR, and 90-day impressions. Pages are ranked by score and mapped to refresh, monitor, or leave actions.</p></div></div><div class="card" style="margin-top:24px"><h3>Validation &amp; leakage</h3><p>The final evaluation uses an 80/20 split grouped by <code>client_id</code>. Training contains 23,837 rows; test contains 6,163; client overlap is 0. The model does not use <code>trend_direction</code> or <code>trend_pct</code> as features, and the feature list was checked for direct future-window or label-derived inputs.</p></div></section>
-<section id="results"><div class="eyebrow">04 · Results</div><h2>Measured performance vs the baseline</h2><table><thead><tr><th>Method</th><th>Average Precision</th><th>ROC-AUC</th></tr></thead><tbody><tr><td>W04 baseline rule</td><td>0.4974</td><td>0.4644</td></tr><tr><td><strong>Logistic Regression</strong></td><td><strong>0.5582</strong></td><td><strong>0.5621</strong></td></tr></tbody></table><div class="grid" style="margin-top:24px"><div class="chart"><h3>Average Precision</h3><div class="bars"><div class="barwrap"><div class="bar alt" style="height:76.5%"><b>0.4974</b></div></div><div class="barwrap"><div class="bar" style="height:86%"><b>0.5582</b></div></div></div><div class="labels"><div>Baseline</div><div>Logistic Regression</div></div></div><div class="chart"><h3>ROC-AUC</h3><div class="bars"><div class="barwrap"><div class="bar alt" style="height:71.4%"><b>0.4644</b></div></div><div class="barwrap"><div class="bar" style="height:86.5%"><b>0.5621</b></div></div></div><div class="labels"><div>Baseline</div><div>Logistic Regression</div></div></div></div><div class="note"><strong>Interpretation:</strong> On the evaluated grouped test split, Logistic Regression measured higher performance on both reported metrics. The result supports a directional prioritization use case; it does not establish causality or guarantee better outcomes after a refresh.</div></section>
-<section id="limitations"><div class="eyebrow">05 · Limitations</div><h2>What this work cannot claim</h2><div class="card"><ol><li><strong>Proxy target:</strong> downward trend is not the same thing as “needs a refresh.”</li><li><strong>Observational evidence:</strong> the study measures associations; it does not show that refreshing a page causes better search performance.</li><li><strong>Feature coverage:</strong> search intent, competitor changes, content quality, and business priorities are not fully represented.</li><li><strong>Validation scope:</strong> results come from one grouped evaluation design and may differ on other clients or periods.</li><li><strong>Moderate performance:</strong> the model improves on the baseline in the evaluated test, but neither metric is close to perfect.</li></ol></div></section>
-<section id="recommendations"><div class="eyebrow">06 · Ranked recommendations</div><h2>Turn scores into review actions.</h2><div class="card"><div class="rec"><div class="rank">01</div><div><h3>Refresh first</h3><p>Prioritize pages with multiple observed refresh signals, especially pages that are relatively stale while retaining meaningful search visibility. A reviewer should verify the content and search intent before acting.</p></div></div><div class="rec"><div class="rank">02</div><div><h3>Monitor next</h3><p>Review pages with moderate evidence, such as visibility combined with relatively weak CTR, before deciding whether a refresh is justified.</p></div></div><div class="rec"><div class="rank">03</div><div><h3>Leave for now</h3><p>Do not prioritize pages when the available signals provide limited evidence for immediate action. Revisit when the observed signals change.</p></div></div></div><div class="note"><strong>Human review is mandatory.</strong> Do not automatically publish or rewrite content, delete or redirect pages, change URLs or production SEO settings, or treat the score as proof that a refresh will improve performance.</div></section>
-<section id="repro"><div class="eyebrow">07 · Reproducibility</div><h2>Inspect the work behind the paper.</h2><div class="grid"><div class="card"><h3>Repository</h3><p><a href="https://github.com/Shanky085/day1">GitHub repository →</a></p><p class="small">The repository contains the notebooks and supporting work for the internship track.</p></div><div class="card"><h3>Notebook trail</h3><p><a href="https://github.com/Shanky085/day1/blob/main/work/notebooks/w02_ml_task_framing.ipynb">W02 · ML task framing</a><br><a href="https://github.com/Shanky085/day1/blob/main/work/notebooks/w03_data_contract.ipynb">W03 · Data contract</a><br><a href="https://github.com/Shanky085/day1/blob/main/work/notebooks/w04_baseline_score.ipynb">W04 · Baseline score</a><br><a href="https://github.com/Shanky085/day1/blob/main/work/notebooks/w05_model.ipynb">W05 · Model</a><br><a href="https://github.com/Shanky085/day1/blob/main/work/notebooks/w06_validation_audit.ipynb">W06 · Validation audit</a><br><a href="https://github.com/Shanky085/day1/blob/main/work/notebooks/w07_action_playbook.ipynb">W07 · Action playbook</a></p></div></div></section>
-<section id="ack"><div class="eyebrow">Acknowledgments &amp; data credit</div><h2>Built on the FlyRank ML Internship dataset.</h2><p>This research artifact was built as part of the FlyRank ML Internship using the internship dataset and its public-safe anonymized release.</p><p><a href="https://flyrank.ai" target="_blank" rel="noopener">FlyRank →</a></p><p class="small">Research framing and implementation are the author's work. Results and claims are limited to the evaluated data, features, and validation design described above.</p></section>
+
+<!-- 1. ABSTRACT -->
+<section id="abstract"><div class="grid"><div>
+<div class="eyebrow">Abstract</div>
+<h2>Five-sentence summary</h2>
+</div><div class="card">
+<p>This study asks whether observed content and search-performance signals can help prioritize pages for human review for a possible content refresh.</p>
+<p>I compared a simple three-signal rule-based baseline with a Logistic Regression classifier using page, search, and recent performance features.</p>
+<p>The evaluation used an 80/20 split grouped by client to prevent same-client data leakage, with Average Precision and ROC-AUC measured on the held-out test set.</p>
+<p>Logistic Regression measured higher Average Precision (0.5582 vs 0.4974) and ROC-AUC (0.5621 vs 0.4644) than the baseline on the grouped test split.</p>
+<p>These results are directional decision-support evidence under the evaluated conditions, not proof that a refresh will improve future search performance.</p>
+</div></div></section>
+
+<!-- 2. QUESTION -->
+<section id="question"><div class="eyebrow">01 &middot; Question</div>
+<h2>What decision should the model support?</h2>
+<div class="card">
+<p><strong>Research question:</strong> Can observed content and search-performance signals be used to prioritize pages for human review for a possible content refresh?</p>
+<p><strong>Decision supported:</strong> Which pages should a content or SEO reviewer examine first?</p>
+<p><strong>Action:</strong> A human reviewer inspects the recommended pages and decides whether to refresh, monitor, or leave each one.</p>
+<div class="note">The output is a prioritization aid. It is not an automatic refresh decision and does not claim that a recommended refresh will improve search performance.</div>
+</div></section>
+
+<!-- 1b. INTRODUCTION -->
+<section id="introduction"><div class="eyebrow">01b &middot; Introduction</div>
+<h2>Why prioritization matters</h2>
+<div class="card">
+<p>Content teams cannot manually inspect every page in a large inventory with equal effort. Review capacity is limited, and a naive or uniform approach wastes reviewer time on pages that do not need attention while missing pages that do.</p>
+<p>The practical problem is deciding which pages deserve review first. This project tests whether observed content and search-performance signals can support that prioritization, producing a ranked queue rather than a prescriptive fix.</p>
+<p>The output is decision-support: it recommends, and a human decides. It does not automate a refresh, rewrite, or deletion.</p>
+</div></section>
+
+<!-- 2. DATA -->
+<section id="data"><div class="eyebrow">02 &middot; Data</div>
+<h2>A focused, public-safe slice</h2>
+<div class="grid"><div class="card">
+<h3>Dataset &amp; grain</h3>
+<p>The work uses the anonymized content-refresh starter slice from the FlyRank ML Internship dataset. The file contains <strong>30,000 page-level observations</strong> across 32 pseudonymized clients; one row represents a content-page observation with search, content, and recent performance attributes.</p>
+</div><div class="card">
+<h3>Time windows &amp; exclusions</h3>
+<p>The starter CSV is a single pre-computed snapshot. No forward-looking time windows are constructed from the daily warehouse. <code>content_id</code> and <code>client_id</code> are retained only for grouped validation and deduplication; they are never used as model features.</p>
+</div></div>
+<div class="card" style="margin-top:24px">
+<h3>Feature exclusions</h3>
+<p>The following fields are <strong>never used as model features</strong>:</p>
+<ul>
+<li><code>trend_direction</code> &mdash; this is the source of the binary label (<code>"down"</code> becomes the positive class).</li>
+<li><code>trend_pct</code> &mdash; derived from the same source as the label; using it would leak information.</li>
+<li><code>content_id</code>, <code>client_id</code> &mdash; used only for grouping and splitting, never as predictive inputs.</li>
+</ul>
+</div>
+<div class="note"><strong>Public-safe:</strong> No client names, private URLs, private queries, credentials, or identifying information are disclosed in this paper.</div>
+</section>
+
+<!-- 4. METHODOLOGY -->
+<section id="method"><div class="eyebrow">03 &middot; Methodology</div>
+<h2>Simple model, honest evaluation.</h2>
+<div class="grid"><div class="card">
+<h3>Target (proxy)</h3>
+<p>The modeling target is a binary proxy: <code>trend_direction == "down"</code> is treated as attention-positive; other observed directions (<code>up</code>, <code>stable</code>, <code>new</code>, <code>flat</code>) are the comparison class. This is <strong>not</strong> a label for refresh success &mdash; it is a same-window bucket that identifies pages with a measured downward trend.</p>
+</div><div class="card">
+<h3>Model</h3>
+<p><strong>Logistic Regression</strong> (sklearn, <code>max_iter=1000</code>, <code>random_state=42</code>) inside a <code>Pipeline</code> with a <code>ColumnTransformer</code>. Numeric features: median-impute then StandardScaler. Categorical: most-frequent impute then OneHotEncoder.</p>
+</div><div class="card">
+<h3>Features (11 total)</h3>
+<p><strong>Numeric (10):</strong> search_volume, cpc, word_count, char_count, impressions_90d, clicks_90d, pageviews_90d, sessions_90d, content_age_days, ctr.</p>
+<p><strong>Categorical (1):</strong> competition_level.</p>
+</div><div class="card">
+<h3>Week-4 baseline</h3>
+<p>A 3-point scoring rule using data-driven median thresholds: content age &ge; 236 days (+1), CTR &lt; 0.07 (+1), impressions_90d &ge; 731 (+1). Pages are mapped to refresh (score 3), monitor (score 2), or leave (score &le; 1).</p>
+</div></div>
+<div class="card" style="margin-top:24px">
+<h3>Validation design</h3>
+<p>The final evaluation uses <code>GroupShuffleSplit</code> (80/20) grouped by <code>client_id</code>. Training: 23,837 rows (25 clients). Test: 6,163 rows (7 clients). <strong>Client overlap: 0.</strong></p>
+<p>A random stratified split on the same data produced higher measured Average Precision and ROC-AUC than the grouped split, illustrating why grouped validation is more conservative for this dataset.</p>
+</div>
+<div class="card" style="margin-top:24px">
+<h3>Leakage checks</h3>
+<p>The Week-6 validation audit verified: (1) no <code>trend_direction</code> or <code>trend_pct</code> appears in the feature set, (2) no feature name contains future-looking or target-derived keywords, (3) zero client overlap between train and test. All checks passed.</p>
+</div></section>
+
+<!-- 5. RESULTS -->
+<section id="results"><div class="eyebrow">04 &middot; Results</div>
+<h2>Measured performance vs the baseline</h2>
+
+<table>
+<thead><tr><th>Method</th><th>Average Precision</th><th>ROC-AUC</th></tr></thead>
+<tbody>
+<tr><td>W04 baseline rule</td><td>0.4974</td><td>0.4644</td></tr>
+<tr><td><strong>Logistic Regression</strong></td><td><strong>0.5582</strong></td><td><strong>0.5621</strong></td></tr>
+<tr><td><em>Difference (model &minus; baseline)</em></td><td><em>+0.0609</em></td><td><em>+0.0977</em></td></tr>
+</tbody>
+</table>
+
+<div class="grid" style="margin-top:24px">
+<div class="chart">
+<h3>Average Precision</h3>
+<img src="figures/model_vs_baseline_average_precision.png" alt="Average Precision: Baseline 0.4974 vs Logistic Regression 0.5582" loading="lazy">
+</div>
+<div class="chart">
+<h3>ROC-AUC</h3>
+<img src="figures/model_vs_baseline_roc_auc.png" alt="ROC-AUC: Baseline 0.4644 vs Logistic Regression 0.5621" loading="lazy">
+</div>
+</div>
+
+<div class="card" style="margin-top:24px">
+<h3>Validation inflation (Week 6 finding)</h3>
+<table>
+<thead><tr><th>Split design</th><th>Average Precision</th><th>ROC-AUC</th></tr></thead>
+<tbody>
+<tr><td>Random stratified 80/20</td><td>0.6251</td><td>0.6111</td></tr>
+<tr><td><strong>Grouped by client 80/20</strong></td><td><strong>0.5582</strong></td><td><strong>0.5621</strong></td></tr>
+<tr><td><em>Inflation</em></td><td><em>+0.0669</em></td><td><em>+0.0490</em></td></tr>
+</tbody>
+</table>
+<p class="small" style="margin-top:12px">The random split inflates both metrics because pages from the same client share patterns. The grouped split prevents this and is the honest estimate.</p>
+</div>
+
+<div class="note">
+<strong>Interpretation:</strong> On the grouped test split, Logistic Regression measured higher performance on both metrics. The baseline's ROC-AUC of 0.4644 is below 0.5 (worse than random for discrimination), meaning the 3-point scoring rule does not reliably separate declining from non-declining pages. The model provides a weak but real signal. These results support directional prioritization; they do not establish causality or guarantee better outcomes after a refresh.
+</div>
+</section>
+
+<!-- 6. LIMITATIONS -->
+<section id="limitations"><div class="eyebrow">05 &middot; Limitations</div>
+<h2>What this work cannot claim</h2>
+<div class="card"><ol>
+<li><strong>Proxy target:</strong> The label <code>trend_direction == "down"</code> is a same-window bucket, not a future decline and not a measure of refresh success. A page flagged as "down" may not need a refresh, and refreshing it may not improve performance.</li>
+<li><strong>No temporal separation:</strong> Features and the label are computed from the same observation window. The GUIDE.md recommends features from a prior 90-day window predicting decline over the next 30 days; this analysis uses a single snapshot.</li>
+<li><strong>Observational evidence:</strong> The study measures associations between signals and the proxy label. It does not show that refreshing a page causes better search performance. That would require an experimental or causal design.</li>
+<li><strong>Validation scope:</strong> Results come from a single grouped evaluation with one random seed (42). No confidence intervals, no cross-validation, and no time-aware split are reported.</li>
+<li><strong>No Precision@K:</strong> The GUIDE.md specifies Precision@K for review queues. This capstone reports Average Precision and ROC-AUC; Precision@K should be added in a production deployment.</li>
+<li><strong>Moderate performance:</strong> The model improves on the baseline, but neither metric is close to perfect. ~0.56 ROC-AUC suggests the signal is real but weak.</li>
+<li><strong>Baseline threshold leakage:</strong> The baseline medians (content_age_days, ctr, impressions_90d) are computed on the full 30,000-row dataset before the train/test split. This means test-set information partially leaks into the baseline thresholds.</li>
+</ol></div>
+<div class="highlight">
+<strong> Honest framing:</strong> All claims in this paper are <em>observed, measured, directional, and decision-support</em>. None are causal. The model does not predict Google's algorithm or guarantee that a refresh will improve search performance.
+</div></section>
+
+<!-- 7. RECOMMENDATIONS -->
+<section id="recommendations"><div class="eyebrow">06 &middot; Ranked recommendations</div>
+<h2>Turn scores into review actions.</h2>
+<div class="card">
+<div class="rec"><div class="rank">01</div><div>
+<h3>Refresh first (score = 3)</h3>
+<p>Pages meeting all three signals &mdash; stale content (age &ge; median), low CTR (&lt; median), and visible (impressions &ge; median) &mdash; are the highest-priority review candidates. A human reviewer should verify the content and search intent before acting.</p>
+</div></div>
+<div class="rec"><div class="rank">02</div><div>
+<h3>Monitor closely (score = 2)</h3>
+<p>Pages with two of three signals have moderate evidence. Review before deciding whether a refresh is justified. Common patterns: stale + visible, or low CTR + visible.</p>
+</div></div>
+<div class="rec"><div class="rank">03</div><div>
+<h3>Leave for now (score &le; 1)</h3>
+<p>Pages with limited evidence should not be prioritized. Revisit when observed signals change.</p>
+</div></div>
+</div>
+<div class="card" style="margin-top:24px">
+<h3>Action distribution across 30,000 pages</h3>
+<table>
+<thead><tr><th>Action</th><th>Count</th><th>Share</th></tr></thead>
+<tbody>
+<tr><td>leave</td><td>15,112</td><td>50.4%</td></tr>
+<tr><td>monitor</td><td>13,001</td><td>43.3%</td></tr>
+<tr><td>refresh</td><td>1,887</td><td>6.3%</td></tr>
+</tbody>
+</table>
+</div>
+<div class="note warn">
+<strong>What must never be automated:</strong> Do not automatically publish or rewrite content, delete or redirect pages, change URLs or production SEO settings, or treat the score as proof that a refresh will improve performance. All refresh, monitor, and prune decisions require human review. The system recommends; a person decides.
+</div></section>
+
+<!-- 8. REPRODUCIBILITY -->
+<section id="repro"><div class="eyebrow">07 &middot; Reproducibility</div>
+<h2>Inspect the work behind the paper.</h2>
+<div class="grid"><div class="card">
+<h3>Repository</h3>
+<p><a href="https://github.com/Shanky085/day1">github.com/Shanky085/day1 &rarr;</a></p>
+<p class="small">The repository contains all notebooks, figures, and the deployed paper source.</p>
+</div><div class="card">
+<h3>Notebook trail</h3>
+<p>
+<a href="https://github.com/Shanky085/day1/blob/main/work/notebooks/w01_research_question.ipynb">W01 &middot; Research question</a><br>
+<a href="https://github.com/Shanky085/day1/blob/main/work/notebooks/w02_ml_task_framing.ipynb">W02 &middot; ML task framing</a><br>
+<a href="https://github.com/Shanky085/day1/blob/main/work/notebooks/w03_data_contract.ipynb">W03 &middot; Data contract</a><br>
+<a href="https://github.com/Shanky085/day1/blob/main/work/notebooks/w04_baseline_score.ipynb">W04 &middot; Baseline score</a><br>
+<a href="https://github.com/Shanky085/day1/blob/main/work/notebooks/w05_model.ipynb">W05 &middot; Model</a><br>
+<a href="https://github.com/Shanky085/day1/blob/main/work/notebooks/w06_validation_audit.ipynb">W06 &middot; Validation audit</a><br>
+<a href="https://github.com/Shanky085/day1/blob/main/work/notebooks/w07_action_playbook.ipynb">W07 &middot; Action playbook</a><br>
+<a href="https://github.com/Shanky085/day1/blob/main/work/notebooks/capstone.ipynb">Capstone &middot; Final paper notebook</a>
+</p>
+</div></div>
+<div class="card" style="margin-top:24px">
+<h3>Reproducibility summary</h3>
+<p class="small">Python 3.11 | scikit-learn | pandas | numpy. Rows: 30,000. Train: 23,837 (25 clients) | Test: 6,163 (7 clients). Client overlap: 0. Model AP: 0.5582 | Model ROC-AUC: 0.5621. Baseline AP: 0.4974 | Baseline ROC-AUC: 0.4644. All code cells in the capstone notebook execute without errors.</p>
+</div></section>
+
+<!-- 9. ACKNOWLEDGMENTS -->
+<section id="ack"><div class="eyebrow">Acknowledgments &amp; data credit</div>
+<h2>Built on the FlyRank ML Internship dataset.</h2>
+<p>This research artifact was built as part of the FlyRank ML Internship using the internship dataset and its public-safe anonymized release.</p>
+<p><a href="https://flyrank.ai" target="_blank" rel="noopener">FlyRank &rarr;</a></p>
+<p class="small">Research framing and implementation are the author's work. Results and claims are limited to the evaluated data, features, and validation design described above.</p>
+</section>
+
 </main>
-<footer><div class="wrap"><strong>Shanky Pal · ML Research Artifact</strong><br><span class="small">Observed · measured · directional · decision-support</span></div></footer>
-</body></html>
+
+<footer><div class="wrap">
+<strong>Shanky Pal &middot; ML Research Artifact</strong><br>
+<span class="small">Observed &middot; measured &middot; directional &middot; decision-support</span>
+</div></footer>
+</body>
+</html>
